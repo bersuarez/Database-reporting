@@ -2,9 +2,10 @@
 
 import psycopg2
 
+
 def connect(news):
     """
-     Connect to the PostgreSQL database. 
+     Connect to the PostgreSQL database.
      Return a database connection.
     """
     try:
@@ -14,7 +15,7 @@ def connect(news):
         print("Unable to connect!")
         print(e.pgerror)
         print(e.diag.message_detail)
-        sys.exit(1)    
+        sys.exit(1)
     else:
         print("\n"+"Connected! Performing query")
     cursor = db.cursor()
@@ -23,7 +24,7 @@ def connect(news):
 
 def busqueda(pregunta, titulo, unidad):
     conn, cursor, create_views = connect("news")
-    if __name__=='__main__':
+    if __name__ == '__main__':
         cursor.execute(create_views)
         cursor.execute("select * from "+pregunta)
         results = cursor.fetchall()
@@ -33,7 +34,7 @@ def busqueda(pregunta, titulo, unidad):
         print(formated_results)
         conn.close()
     else:
-        print ("Import")
+        print("Import")
 
 
 get_popular_articles = busqueda(

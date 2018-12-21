@@ -1,5 +1,5 @@
 # Database-reporting
-Project_reporting_tool is a set of queries to a newspaper database that helps discover what kind of articles the site's readers like. The database contains newspaper articles, as well as the web server log for the site. The log has a database row for each time a reader loaded a web page. 
+Database-reporting is a set of queries to a newspaper database that helps discover what kind of articles the site's readers like. The database contains newspaper articles, as well as the web server log for the site. The log has a database row for each time a reader loaded a web page. 
 ## Preparation / installation
 To start on this project, you'll need database software (provided by a Linux virtual machine) and the data to analyze. For help, follow this [link](https://classroom.udacity.com/nanodegrees/nd004/parts/4dcefa2a-fb54-4909-9708-9ef2839e5340/modules/5dbcf44d-760d-49d4-9055-b6a0a48e5454/lessons/3967218625/concepts/39636486110923) (you might need to pay for the course)
 
@@ -77,8 +77,6 @@ This query informs the user about:
 The resulting table will include the date (date) and the percentage of errors (float)
 #### Running the code
 Once the virtual machine is on, the dependencies are downloaded, and the views are recreated, run `python3 reporting_tool.py` to execute the queries and data will be delivered as text. 
-## FAQs
-jk, no one has seen this
 ## License
 MIT License
 
