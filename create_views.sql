@@ -1,4 +1,4 @@
-ˆcreate view question1 as select '"'||articles.title||'"' as title, count(*) as views
+create view question1 as select '"'||articles.title||'"' as title, count(*) as views
      from articles, log 
      WHERE log.path = CONCAT('/article/', articles.slug) 
      group by articles.title 

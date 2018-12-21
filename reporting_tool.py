@@ -9,6 +9,7 @@ def connect(news):
     """
     try:
         db = psycopg2.connect("dbname={}".format(news))
+        create_views = open("create_views.sql").read()
     except psycopg2.Error as e:
         print("Unable to connect!")
         print(e.pgerror)
@@ -17,11 +18,13 @@ def connect(news):
     else:
         print("\n"+"Connected! Performing query")
     cursor = db.cursor()
-    return db, cursor
+    return db, cursor, create_views
+
 
 def busqueda(pregunta, titulo, unidad):
-    conn, cursor = connect("news")
+    conn, cursor, create_views = connect("news")
     if __name__=='__main__':
+        cursor.execute(create_views)
         cursor.execute("select * from "+pregunta)
         results = cursor.fetchall()
         formated_results = "\n".join(
