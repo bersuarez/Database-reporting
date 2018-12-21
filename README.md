@@ -47,29 +47,29 @@ As you explore the data, you may find it useful to take notes! Don't try to memo
 Connecting from your code
 The database that you're working with in this project is running PostgreSQL. So in your code, you'll want to use the psycopg2 Python module to connect to it, for instance:
 
-`db = psycopg2.connect("dbname=news")``
+`db = psycopg2.connect("dbname=news")`
 
 This might need previous installation: 
 
 `sudo pip3 install psycog2`
 
 ## Usage
-The queries for analyzing the data are contained in the file [queries](create_views.sql), to use them, import the file by running the following command: `psql -d news -f create_views.sql` on the terminal.
+The queries for analyzing the data are contained in the file [queries](create_views.sql). This file is automatically imported and executed when you run reporting_tool.py
 #### Views recreation
-##### First query: pregunta1
+##### First query: question1
 ###### Purpose:
 This query answers the following question: 
 - What are the most popular three articles of all time? 
 - Which articles have been accessed the most?
 ###### Resulting table:
 The resulting table will include the title of the top articles (text) and the number of views it has (integer)
-##### Second query: pregunta2
+##### Second query: question2
 ###### Purpose:
 This query informs the user about:
 - Who are the most popular article authors of all time? That is, when you sum up all of the articles each author has written, which authors get the most page views?
 ###### Resulting table:
 The resulting table will include the name of the author (text) and the number of times it was searched (integer)
-##### Third query: pregunta3
+##### Third query: question3
 ###### Purpose:
 This query informs the user about:
 - On which days did more than 1% of requests lead to errors?
