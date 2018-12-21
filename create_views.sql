@@ -1,6 +1,6 @@
 create view question1 as select '"'||articles.title||'"' as title, count(*) as views
      from articles, log 
-     WHERE log.path = CONCAT('/article/', articles.slug) 
+     WHERE log.path = '/article/'|| articles.slug
      group by articles.title 
      order by views desc
      limit 3;
@@ -8,7 +8,7 @@ create view question1 as select '"'||articles.title||'"' as title, count(*) as v
 create view question2 as select authors.name as author, count (*) as views 
      from articles, authors, log 
      where authors.id::text=articles.author::text 
-     and log.path like '%'||articles.slug||'%' 
+     and log.path=CONCAT('/article/',articles.slug)
      group by authors.name 
      order by views desc;
 
